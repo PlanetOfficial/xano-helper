@@ -1,4 +1,4 @@
-<h2>Run the app locally: <h2>
+<h1>Run the app locally: <h1>
 
 <p>yarn install</p>
 <p>npm start</p>
