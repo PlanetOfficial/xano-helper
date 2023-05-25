@@ -1,15 +1,15 @@
 <h2>Run the app locally: <h2>
 
-yarn install
-npm start
+<p>yarn install</p>
+<p>npm start</p>
 
 <h2>Deployment to google cloud<h2>
-1. Setup gcloud cli and configure to project
-2. gcloud run deploy
+<p>1. Setup gcloud cli and configure to project</p>
+<p>2. gcloud run deploy</p>
 
 <h2>Server info<h2>
-Server URL:
-https://xano-helper-ft4aqq7lra-wn.a.run.app
+<p>Server URL:</p>
+<p>https://xano-helper-ft4aqq7lra-wn.a.run.app</p>
 
-Working requests:
-/sendNotification
+<p>Working requests:</p>
+<p>/sendNotification</p>
