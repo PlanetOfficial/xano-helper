@@ -24,12 +24,12 @@ const sendNotification = async (title, body, tokens, res) => {
   admin.messaging().sendEachForMulticast(message)
     .then((response) => {
     if (!response || response.failureCount > 0) {
-      res.status(500).send('Something went wrong1.');
+      res.status(400).send('Something went wrong or one or more notifications failed to send');
     } else {
       res.status(200).send('Notifications successfully sent!');
     }
     }).catch((error) => {
-      res.status(500).send('Something went wrong2.');
+      res.status(500).send('Something went wrong.');
     });
 }
 
