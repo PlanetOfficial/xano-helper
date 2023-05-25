@@ -1,15 +1,17 @@
 <h2>Run the app locally: </h2>
 
-<p>1. yarn install</p>
-<p>2. npm start</p>
+1. yarn install
+2. npm start
 
 <h2>Deployment to google cloud</h2>
-<p>1. Setup gcloud cli and configure to project</p>
-<p>2. gcloud run deploy</p>
+1. Setup gcloud cli and configure to project
+2. gcloud run deploy
 
 <h2>Server info</h2>
-<p>Server URL:</p>
-<p>https://xano-helper-ft4aqq7lra-wn.a.run.app</p>
+Server URL:
+https://xano-helper-ft4aqq7lra-wn.a.run.app
 
-<p>Working requests:</p>
-<p>/sendNotification</p>
+Working requests:
+/sendNotification
+
+**Note that if you change the apikey, you need to change it in Xano as well.
