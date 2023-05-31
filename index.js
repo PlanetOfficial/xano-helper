@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { sendNotification } = require('./notifications/notificationHelpers');
-const { key } = require('./constants');
+const { keys } = require('./constants');
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.get('/sendNotification', (req, res) => {
   const tokens = req.query.tokens;
     
   if (title && body && tokens && apikey) {
-    if (apikey === key) {
+    if (keys.includes(apikey)) {
       sendNotification(title, body, tokens, res);
     } else {
       res.status(401).send('Unauthorized');
