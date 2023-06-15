@@ -1,19 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const { sendNotification } = require('./notifications/notificationHelpers');
 const { keys } = require('./constants');
 
 const app = express();
+app.use(bodyParser.json());
 
 /**
  * requires title, body, and tokens in request
  */
-app.get('/sendNotification', (req, res) => {
-  const apikey = req.query.apikey;
-  const title = req.query.title;
-  const body = req.query.body;
-  const tokens = req.query.tokens;
-    
+app.post('/api/sendNotification', (req, res) => {
+  const {title, body, tokens, apikey} = req.body;
+
   if (title && body && tokens && apikey) {
     if (keys.includes(apikey)) {
       sendNotification(title, body, tokens, res);
