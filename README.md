@@ -4,8 +4,9 @@
 2. npm start
 
 <h2>Deployment to google cloud</h2>
+
 1. Setup gcloud cli and configure to project
-2. gcloud run deploy
+2. gcloud run deploy (choose us-west4)
 
 <h2>Server info</h2>
 Server URL:
