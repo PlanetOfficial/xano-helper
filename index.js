@@ -22,18 +22,42 @@ app.post('/api/sendNotification', (req, res) => {
   }
 });
 
-app.post('/api/getGetstreamUserToken', (req, res) => {
-  const {getstream_api_key, getstream_api_secret, user_id, apikey} = req.body;
+app.post('/api/getstream/getUserToken', (req, res) => {
+  const {user_id, apikey} = req.body;
 
-  if (getstream_api_key && getstream_api_secret && user_id && apikey) {
+  if (user_id && apikey) {
     if (keys.includes(apikey)) {
-      getGetstreamUserToken(getstream_api_key, getstream_api_secret, user_id, res);
+      getGetstreamUserToken(user_id, res);
     } else {
       res.status(401).send('Unauthorized');
     }
   } else {
     res.status(400).send('Bad request');
   }
+});
+
+app.post('/api/getstream/channel/create', (req, res) => {
+  const {members, apiKey} = req.body;
+});
+
+app.post('/api/getstream/channel/delete', (req, res) => {
+  
+});
+
+app.post('/api/getstream/channel/addMembers', (req, res) => {
+  
+});
+
+app.post('/api/getstream/channel/deleteMembers', (req, res) => {
+  
+});
+
+app.post('/api/getstream/registerDeviceToken', (req, res) => {
+  
+});
+
+app.post('/api/getstream/unregisterDeviceToken', (req, res) => {
+  
 });
 
 const port = parseInt(process.env.PORT) || 8080;
