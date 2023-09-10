@@ -6,7 +6,7 @@ admin.initializeApp({
   credential: admin.credential.cert({projectId: serviceAccount.project_id, clientEmail: serviceAccount.client_email, privateKey: serviceAccount.private_key})
 });
 
-export const sendNotification = async (title: string, body: string, tokens: string[], res: Response) => {
+export const sendNotification = (title: string, body: string, tokens: string[], res: Response) => {
   const message = {
     notification: {
       title: title,
