@@ -1,7 +1,7 @@
-import express from 'express'
-import bodyParser from 'body-parser'
+import express from 'express';
+import bodyParser from 'body-parser';
 
-import {sendNotification} from './notifications/notificationHelpers'
+import {sendNotification} from './notifications/notificationHelpers';
 import { getGetstreamUserToken } from './getstream/getstreamUser';
 import { keys } from './constants';
 
