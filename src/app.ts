@@ -1,9 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express'
+import bodyParser from 'body-parser'
 
-const { sendNotification } = require('./notifications/notificationHelpers');
-const { keys } = require('./constants');
-const { getGetstreamUserToken } = require('./getstream/getstreamHelpers');
+import {sendNotification} from './notifications/notificationHelpers'
+import { getGetstreamUserToken } from './getstream/getstreamUser';
+import { keys } from './constants';
 
 const app = express();
 app.use(bodyParser.json());

@@ -1,18 +1,12 @@
-const admin = require('firebase-admin');
-
-const serviceAccount = require("../serviceAccountKey.json");
+import admin from 'firebase-admin'
+import { Response } from 'express'
+import serviceAccount from '../../serviceAccountKey.json'
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert({projectId: serviceAccount.project_id, clientEmail: serviceAccount.client_email, privateKey: serviceAccount.private_key})
 })
 
-/**
- * sends notifications to devices with following params
- * @param {string} title 
- * @param {string} body 
- * @param {string[]} tokens 
- */
-const sendNotification = async (title, body, tokens, res) => {
+export const sendNotification = async (title: string, body: string, tokens: string[], res: Response) => {
   const message = {
     notification: {
       title: title,
@@ -28,9 +22,7 @@ const sendNotification = async (title, body, tokens, res) => {
     } else {
       res.status(200).send('Notifications successfully sent!');
     }
-    }).catch((error) => {
+    }).catch((_) => {
       res.status(500).send('Something went wrong.');
     });
 }
-
-module.exports = {sendNotification};

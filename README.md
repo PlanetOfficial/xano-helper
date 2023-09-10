@@ -1,7 +1,7 @@
 <h2>Run the app locally: </h2>
 
 1. yarn install
-2. npm start
+2. yarn start
 
 <h2>Deployment to google cloud</h2>
 
@@ -12,7 +12,9 @@
 Server URL:
 https://xano-helper-ft4aqq7lra-wn.a.run.app
 
-Working requests:
-/sendNotification
-
 **Note that if you change the apikey, you need to change it in Xano as well.
+
+<h2>Google cloud cli tips<h2>
+
+Get a list of all repos in google's artifact registry:
+```gcloud artifacts repositories list```
