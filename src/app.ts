@@ -2,9 +2,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 import {sendNotification} from './notifications/notificationHelpers';
-import { deleteUser, getGetstreamUserToken } from './getstream/getstreamUser';
+import { deleteUser, getGetstreamUserToken, getOrCreateUser } from './getstream/getstreamUser';
 import { keys } from './constants';
 import { addMembersWrapper, createChannel, deleteChannel, removeMembers } from './getstream/getstreamChannels';
+import { stringifyArray } from './utils/misc';
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,7 +15,21 @@ app.post('/api/sendNotification', (req, res) => {
 
   if (title && body && tokens && apikey) {
     if (keys.includes(apikey)) {
-      sendNotification(title, body, tokens, res);
+      sendNotification(String(title), String(body), stringifyArray(tokens), res);
+    } else {
+      res.status(401).send('Unauthorized');
+    }
+  } else {
+    res.status(400).send('Bad request');
+  }
+});
+
+app.post('/api/getstream/createUsers', (req, res) => {
+  const {user_ids, apikey} = req.body;
+
+  if (user_ids && apikey) {
+    if (keys.includes(apikey)) {
+      getOrCreateUser(stringifyArray(user_ids), res);
     } else {
       res.status(401).send('Unauthorized');
     }
@@ -28,7 +43,7 @@ app.post('/api/getstream/getUserToken', (req, res) => {
 
   if (user_id && apikey) {
     if (keys.includes(apikey)) {
-      getGetstreamUserToken(user_id, res);
+      getGetstreamUserToken(String(user_id), res);
     } else {
       res.status(401).send('Unauthorized');
     }
@@ -42,7 +57,7 @@ app.post('/api/getstream/deleteUser', (req, res) => {
 
   if (user_id && apikey) {
     if (keys.includes(apikey)) {
-      deleteUser(user_id, res);
+      deleteUser(String(user_id), res);
     } else {
       res.status(401).send('Unauthorized');
     }
@@ -56,7 +71,7 @@ app.post('/api/getstream/channel/create', (req, res) => {
 
   if (members && event_id && creator_id && apikey) {
     if (keys.includes(apikey)) {
-      createChannel(members, event_id, creator_id, res);
+      createChannel(stringifyArray(members), String(event_id), String(creator_id), res);
     } else {
       res.status(401).send('Unauthorized');
     }
@@ -70,7 +85,7 @@ app.post('/api/getstream/channel/delete', (req, res) => {
 
   if (event_id && apikey) {
     if (keys.includes(apikey)) {
-      deleteChannel(event_id, res);
+      deleteChannel(String(event_id), res);
     } else {
       res.status(401).send('Unauthorized');
     }
@@ -84,7 +99,7 @@ app.post('/api/getstream/channel/addMembers', (req, res) => {
 
   if (event_id && new_members && apikey) {
     if (keys.includes(apikey)) {
-      addMembersWrapper(event_id, new_members, res);
+      addMembersWrapper(String(event_id), stringifyArray(new_members), res);
     } else {
       res.status(401).send('Unauthorized');
     }
@@ -98,7 +113,7 @@ app.post('/api/getstream/channel/removeMembers', (req, res) => {
 
   if (event_id && members && apikey) {
     if (keys.includes(apikey)) {
-      removeMembers(event_id, members, res);
+      removeMembers(String(event_id), stringifyArray(members), res);
     } else {
       res.status(401).send('Unauthorized');
     }

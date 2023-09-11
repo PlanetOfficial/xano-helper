@@ -3,18 +3,19 @@
 1. yarn install
 2. yarn start
 
-<h2>Deployment to google cloud</h2>
-
-1. Setup gcloud cli and configure to project
-2. gcloud run deploy (choose us-west4)
-
 <h2>Server info</h2>
 Server URL:
-https://xano-helper-ft4aqq7lra-wn.a.run.app
+https://xano-helper.uc.r.appspot.com
 
-**Note that if you change the apikey, you need to change it in Xano as well.
+***
+Note that if you change this server's apikey, you need to change it in Xano as well.
+Also, if you change the getstream apikey, you need to change it in Xano as well. Same
+thing applies to the getstream channel type if you decide to change it.
+***
 
-<h2>Google cloud cli tips<h2>
+<h2>Google cloud cli deployments<h2>
+
+```gcloud app deploy```
 
 Get a list of all repos in google's artifact registry:
 ```gcloud artifacts repositories list```

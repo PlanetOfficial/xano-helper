@@ -7,6 +7,13 @@ admin.initializeApp({
 });
 
 export const sendNotification = (title: string, body: string, tokens: string[], res: Response) => {
+  if (tokens.length == 0) {
+    const errorMsg = 'Bad request, array of tokens should have length > 0.';
+    res.status(400).send(errorMsg);
+    console.error(errorMsg);
+    return;
+  };
+
   const message = {
     notification: {
       title: title,
@@ -18,11 +25,15 @@ export const sendNotification = (title: string, body: string, tokens: string[], 
   admin.messaging().sendEachForMulticast(message)
     .then((response) => {
       if (!response || response.failureCount > 0) {
-        res.status(400).send('Something went wrong or one or more notifications failed to send');
+        const errorMsg = `Something went wrong or one or more notifications failed to send Inputs: ${title} ${body} ${JSON.stringify(tokens)}`;
+        res.status(500).send(errorMsg);
+        console.error(errorMsg);
       } else {
         res.status(200).send('Notifications successfully sent!');
       }
-    }).catch((_) => {
-      res.status(500).send('Something went wrong.');
+    }).catch((error) => {
+      const errorMsg = `Send notification error: ${error} Inputs: ${title} ${body} ${JSON.stringify(tokens)}`;
+      res.status(500).send(errorMsg);
+      console.error(errorMsg);
     });
 };
