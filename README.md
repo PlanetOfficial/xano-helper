@@ -13,7 +13,7 @@ Also, if you change the getstream apikey, you need to change it in Xano as well.
 thing applies to the getstream channel type if you decide to change it.
 ***
 
-<h2>Google cloud cli deployments<h2>
+<h2>Google cloud cli deployments</h2>
 
 ```gcloud app deploy```
 
