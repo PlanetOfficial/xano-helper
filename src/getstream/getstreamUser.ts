@@ -14,7 +14,7 @@ export const getOrCreateUser = async (user_ids: string[], res: Response) => {
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
-}
+};
 
 export const getGetstreamUserToken = (user_id: string, res: Response) => {
   try {
@@ -42,4 +42,4 @@ export const deleteUser = async (user_id: string, res: Response) => {
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
-}
+};

@@ -12,7 +12,7 @@ export const sendNotification = (title: string, body: string, tokens: string[], 
     res.status(400).send(errorMsg);
     console.error(errorMsg);
     return;
-  };
+  }
 
   const message = {
     notification: {
