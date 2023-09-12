@@ -5,12 +5,12 @@ import { Response } from 'express';
 const getChannel = (event_id: string) => {
   const streamClient = StreamChat.getInstance(getstream.api_key, getstream.api_secret);
   return streamClient.channel(getstream.channel_type, `${getstream.event_chat_prefix}_${event_id}`);
-}
+};
 
 const addMembers = async (event_id: string, user_ids: string[]) => {
   const channel = getChannel(event_id);
   await channel.addMembers(user_ids);
-}
+};
 
 export const createChannel = async (user_ids: string[], event_id: string, creator_id: string, res: Response) => {
   try {
@@ -37,7 +37,7 @@ export const deleteChannel = async (event_id: string, res: Response) => {
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
-}
+};
 
 export const addMembersWrapper = async (event_id: string, user_ids: string[], res: Response) => {
   try {
@@ -48,7 +48,7 @@ export const addMembersWrapper = async (event_id: string, user_ids: string[], re
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
-}
+};
 
 export const removeMembers = async (event_id: string, user_ids: string[], res: Response) => {
   try {
@@ -60,8 +60,8 @@ export const removeMembers = async (event_id: string, user_ids: string[], res: R
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
-}
+};
 
-export const registerDeviceToken = () => {}
+export const registerDeviceToken = () => {};
 
-export const unregisterDeviceToken = () => {}
+export const unregisterDeviceToken = () => {};
