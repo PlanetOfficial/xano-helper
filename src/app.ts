@@ -11,11 +11,11 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/api/sendNotification', (req, res) => {
-  const {title, body, tokens, apikey} = req.body;
+  const {title, body, tokens, apikey, screenToNavigate} = req.body;
 
   if (title && body && tokens && apikey) {
     if (keys.includes(apikey)) {
-      sendNotification(String(title), String(body), stringifyArray(tokens), res);
+      sendNotification(String(title), String(body), stringifyArray(tokens), screenToNavigate, res);
     } else {
       res.status(401).send('Unauthorized');
     }

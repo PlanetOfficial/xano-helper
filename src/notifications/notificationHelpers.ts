@@ -6,7 +6,7 @@ admin.initializeApp({
   credential: admin.credential.cert({projectId: serviceAccount.project_id, clientEmail: serviceAccount.client_email, privateKey: serviceAccount.private_key})
 });
 
-export const sendNotification = (title: string, body: string, tokens: string[], res: Response) => {
+export const sendNotification = (title: string, body: string, tokens: string[], screenToNavigate: string, res: Response) => {
   if (tokens.length == 0) {
     const errorMsg = 'Bad request, array of tokens should have length > 0.';
     res.status(400).send(errorMsg);
@@ -15,6 +15,9 @@ export const sendNotification = (title: string, body: string, tokens: string[], 
   }
 
   const message = {
+    data: {
+      screen: screenToNavigate,
+    },
     notification: {
       title: title,
       body: body,
