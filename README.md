@@ -17,5 +17,9 @@ thing applies to the getstream channel type if you decide to change it.
 
 ```gcloud app deploy```
 
+Debug console command:
+
+```gcloud app logs tail```
+
 Get a list of all repos in google's artifact registry:
 ```gcloud artifacts repositories list```
