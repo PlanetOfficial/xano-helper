@@ -17,7 +17,7 @@
     "eslint": "^8.49.0",
     "express": "^4.17.1",
     "firebase-admin": "^11.10.0",
-    "stream-chat": "^8.11.0",
+    "stream-chat": "^8.12.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {

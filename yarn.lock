@@ -2326,10 +2326,10 @@ statuses@2.0.1:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-2.0.1.tgz#55cb000ccf1d48728bd23c685a063998cf1a1b63"
   integrity sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==
 
-stream-chat@^8.11.0:
-  version "8.11.0"
-  resolved "https://registry.yarnpkg.com/stream-chat/-/stream-chat-8.11.0.tgz#4f4c7f12036250ce1250031c98dee9c4d6c5089e"
-  integrity sha512-s+WiCELtsSo4JB1C5OpgQkrx7f+OJoOTKblkbg8+2i8pVb2n7ly8p4B+VZ7GtJGIo+GfSLLDcWvMHl1UwWZ7Hw==
+stream-chat@^8.12.0:
+  version "8.12.4"
+  resolved "https://registry.yarnpkg.com/stream-chat/-/stream-chat-8.12.4.tgz#3c2044ceb74b4be8bd06191963723d7d47014ec1"
+  integrity sha512-YaNuQNqiJcF82+VKAGNSV8wv0+Th73kHIV4Owiu2Bvhwqt7398Ertr+bxW4WXkBtwKoAeOZOc0oacrUKWQAuKQ==
   dependencies:
     "@babel/runtime" "^7.16.3"
     "@types/jsonwebtoken" "~9.0.0"
