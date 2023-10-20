@@ -9,17 +9,5 @@ https://xano-helper.uc.r.appspot.com
 
 ***
 Note that if you change this server's apikey, you need to change it in Xano as well.
-Also, if you change the getstream apikey, you need to change it in Xano as well. Same
-thing applies to the getstream channel type if you decide to change it.
-***
-
-<h2>Google cloud cli deployments</h2>
-
-```gcloud app deploy```
-
-Debug console command:
-
-```gcloud app logs tail```
-
-Get a list of all repos in google's artifact registry:
-```gcloud artifacts repositories list```
+<h2>Azure cloud deployments</h2>
+Simply merge to main. CI will do the rest.
