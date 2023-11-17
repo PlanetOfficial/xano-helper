@@ -9,4 +9,5 @@ export const getstream = {
   channel_type: 'messaging',
   event_chat_prefix: 'event',
   push_provider: 'firebase' as PushProvider,
+  push_config_name: 'FirebaseConfig'
 };
