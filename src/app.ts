@@ -123,6 +123,7 @@ app.post('/api/getstream/channel/removeMembers', (req, res) => {
 });
 
 app.post('/api/getstream/registerDeviceToken', (req, res) => {
+  console.log('request body: ' + req.body);
   const {user_id, token, apikey} = req.body;
 
   if (user_id && token && apikey) {
@@ -132,7 +133,6 @@ app.post('/api/getstream/registerDeviceToken', (req, res) => {
       res.status(401).send('Unauthorized');
     }
   } else {
-    console.log(user_id, ' ', token, ' ', apikey);
     res.status(400).send('Bad request');
   }
 });
