@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 import {sendNotification} from './notifications/notificationHelpers';
-import { deleteUser, getGetstreamUserToken, getOrCreateUser } from './getstream/getstreamUser';
+import { deleteUser, getGetstreamUserToken, getOrCreateUser, registerDeviceToken } from './getstream/getstreamUser';
 import { keys } from './constants';
 import { addMembersWrapper, createChannel, deleteChannel, removeMembers } from './getstream/getstreamChannels';
 import { stringifyArray } from './utils/misc';
@@ -122,33 +122,19 @@ app.post('/api/getstream/channel/removeMembers', (req, res) => {
   }
 });
 
-// app.post('/api/getstream/registerDeviceToken', (req, res) => {
-//   const {apikey} = req.body;
+app.post('/api/getstream/registerDeviceToken', (req, res) => {
+  const {user_id, token, apikey} = req.body;
 
-//   if (&& apikey) {
-//     if (keys.includes(apikey)) {
-      
-//     } else {
-//       res.status(401).send('Unauthorized');
-//     }
-//   } else {
-//     res.status(400).send('Bad request');
-//   }
-// });
-
-// app.post('/api/getstream/unregisterDeviceToken', (req, res) => {
-//   const {apikey} = req.body;
-
-//   if (&& apikey) {
-//     if (keys.includes(apikey)) {
-      
-//     } else {
-//       res.status(401).send('Unauthorized');
-//     }
-//   } else {
-//     res.status(400).send('Bad request');
-//   }
-// });
+  if (user_id && token && apikey) {
+    if (keys.includes(apikey)) {
+      registerDeviceToken(user_id, token, res);
+    } else {
+      res.status(401).send('Unauthorized');
+    }
+  } else {
+    res.status(400).send('Bad request');
+  }
+});
 
 const port = parseInt(process.env.PORT) || 8080;
 app.listen(port, () => {
