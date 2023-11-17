@@ -47,7 +47,7 @@ export const deleteUser = async (user_id: string, res: Response) => {
 export const registerDeviceToken = async (user_id: string, token: string, res: Response) => {
   try {
     const streamClient = StreamChat.getInstance(getstream.api_key, getstream.api_secret);
-    await streamClient.addDevice(token, getstream.push_provider, user_id);
+    await streamClient.addDevice(token, getstream.push_provider, user_id, getstream.push_config_name);
     res.status(200).send('Device token added to getstream successfully.');
   } catch (error) {
     const errorMsg = `Error registering token: ${error} Inputs: ${user_id} ${token}`;
