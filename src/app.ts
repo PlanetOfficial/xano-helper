@@ -132,6 +132,7 @@ app.post('/api/getstream/registerDeviceToken', (req, res) => {
       res.status(401).send('Unauthorized');
     }
   } else {
+    console.log(user_id, ' ', token, ' ', apikey);
     res.status(400).send('Bad request');
   }
 });
