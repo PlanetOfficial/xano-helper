@@ -21,7 +21,7 @@ export const createChannel = async (user_ids: string[], event_id: string, creato
     await addMembers(event_id, user_ids);
     res.status(200).send(channelId);
   } catch (error) {
-    const errorMsg = `Error creating channel: ${error} Inputs: ${JSON.stringify(user_ids)} ${event_id} ${creator_id} error: ${error}`;
+    const errorMsg = `Error creating channel: ${error} Inputs: ${JSON.stringify(user_ids)} ${event_id} ${creator_id}`;
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
@@ -33,7 +33,7 @@ export const deleteChannel = async (event_id: string, res: Response) => {
     await channel.delete();
     res.status(200).send('Channel deleted successfully!');
   } catch (error) {
-    const errorMsg = `Error deleting channel: ${error} Inputs: ${event_id} error: ${error}`;
+    const errorMsg = `Error deleting channel: ${error} Inputs: ${event_id}`;
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
@@ -44,7 +44,7 @@ export const addMembersWrapper = async (event_id: string, user_ids: string[], re
     await addMembers(event_id, user_ids);
     res.status(200).send('Members added successfully!');
   } catch (error) {
-    const errorMsg = `Error adding members: ${error} Inputs: ${event_id} ${JSON.stringify(user_ids)} error:${error}`;
+    const errorMsg = `Error adding members: ${error} Inputs: ${event_id} ${JSON.stringify(user_ids)}`;
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
@@ -56,12 +56,8 @@ export const removeMembers = async (event_id: string, user_ids: string[], res: R
     await channel.removeMembers(user_ids);
     res.status(200).send('Members removed successfully.');
   } catch (error) {
-    const errorMsg = `Error removing members: ${error} Inputs: ${event_id} ${JSON.stringify(user_ids)} error: ${error}`;
+    const errorMsg = `Error removing members: ${error} Inputs: ${event_id} ${JSON.stringify(user_ids)}`;
     res.status(500).send(errorMsg);
     console.error(errorMsg);
   }
 };
-
-export const registerDeviceToken = () => {};
-
-export const unregisterDeviceToken = () => {};
