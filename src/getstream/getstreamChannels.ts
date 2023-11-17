@@ -1,4 +1,4 @@
-import { Device, StreamChat } from 'stream-chat';
+import { StreamChat } from 'stream-chat';
 import { getstream } from '../constants';
 import { Response } from 'express';
 

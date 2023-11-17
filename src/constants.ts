@@ -1,4 +1,4 @@
-import { PushProvider } from "stream-chat";
+import { PushProvider } from 'stream-chat';
 
 export const keys = ['ssWe7Fg3JBMUS5at2j9HQfSWDzbkXfac5wjBzfEc'];
 
