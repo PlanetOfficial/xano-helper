@@ -18,7 +18,7 @@
     "express": "^4.17.1",
     "firebase-admin": "^11.10.0",
     "stream-chat": "^8.11.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
